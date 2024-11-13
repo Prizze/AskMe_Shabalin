@@ -1,0 +1,36 @@
+{% extends "layouts/base.html" %}
+
+{% load static %}
+{% block link_css %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+ <link rel="stylesheet" href="{% static 'css/one_question.css' %}">
+{% endblock %}
+
+{% block content %}
+
+{% include 'layouts/question.html' %}
+
+<div class = "answer-add">
+  <h3>Добавьте свой ответ</h3>
+  <div class="form-floating answer-area">
+    <textarea class="form-control mw-50" placeholder="Leave a comment here" id="floatingTextarea2" ></textarea>
+    <label for="floatingTextarea2" placeholder="Введите свой ответ"></label>
+  </div>
+  <button type="button" class="btn btn-outline-primary btn-lg">Ответить</button>
+</div>
+
+<div class = "answers-container">
+  <div class ="answers-header"><h3>Ответы</h3></div>
+
+  <div class = "answers-list">
+    {% for answer in answers %}
+      {% include 'layouts/answer.html' %}
+    {% endfor %}
+  </div>
+
+{% include 'layouts/pagination.html' %}
+  
+</div>
+
+<script src="https://kit.fontawesome.com/db91f6837d.js" crossorigin="anonymous"></script>
+{% endblock %}

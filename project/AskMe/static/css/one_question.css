@@ -1,0 +1,19 @@
+.answers-header, .answer-add{
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.answers-container, .answers-list{
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+}
+
+.answer-area{
+    margin-top: 20px;
+}
+.btn-outline-primary{
+    margin-top: 20px;
+}

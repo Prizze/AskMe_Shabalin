@@ -1,0 +1,41 @@
+{% load static %}
+<div class = "card">
+    <div class = "card-view">
+        <div class = "site-logo">
+          {% if question.profile.avatar %}
+              <img src="{{ question.profile.avatar.url }}" alt="Avatar">
+          {% else %}
+              <img src="{% static 'img/logo.png' %}" alt="Default Avatar">
+          {% endif %}
+        </div>
+        <div class = "card-view-rating">
+          <button type="button" class="like" data-question-id="{{ question.id }}" title="Like this question">
+            <i class="fa-regular fa-thumbs-up like"></i>
+          </button>
+          <label for="">{{ question.rating }}</label>
+          <button type="button" class="dislike" data-question-id="{{ question.id }}" title="Dislike this question">
+            <i class="fa-regular fa-thumbs-down fa-flip-horizontal dislike"></i>
+          </button> 
+        </div>
+    </div>
+
+    <div class = "card-description">
+       <div class ="card-theme">
+          <h3>{{question.title }}</h3>
+       </div>
+       <div class = "card-text">
+          <p>{{question.body }}</p>
+       </div>
+       <div class = "card-links">
+          <div>
+              <a href="{% url 'question' question.id %}"> Ответить ({{ question.answer_set.count }})</a>
+          </div>
+            <div class = "card-tags">
+              Тэги: 
+              {% for tag in question.tags.all %}
+                <a href="{% url 'tag' tag.name %}">{{ tag.name }}</a> 
+              {% endfor %}
+            </div>
+       </div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+.create-new-ask{
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.valid-feedback{
+    display: inline;
+}
+.btn-outline-primary{
+    margin-top: 20px;
+}

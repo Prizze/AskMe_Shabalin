@@ -1,0 +1,65 @@
+{% extends "layouts/base.html" %}
+
+{% load static %}
+
+{% block link_css %}
+ <link rel="stylesheet" href="{% static 'css/register.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class = "registration-form">
+    <h3>
+        Регистрация
+    </h3>
+    <form action="#" class="form-floating needs-validation"></form>
+    <div class="row g-2">
+        <div class="col-md">
+            <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Логин</label>
+            <input type="email" class="form-control is-invalid w-50" id="exampleFormControlInput1" placeholder="Введите логин">
+            <div class="invalid-feedback">
+                Введите логин
+            </div>    
+            </div>   
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Email</label>
+                <input type="email" class="form-control is-invalid w-50" id="exampleFormControlInput4" placeholder="Введите почту">
+                <div class="invalid-feedback">
+                    Введите почту
+                </div>    
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Имя на сайте</label>
+                <input type="email" class="form-control is-invalid w-50" id="exampleFormControlInput5" placeholder="Введите логин">
+                <div class="invalid-feedback">
+                Введите отображаемое имя
+                </div>    
+            </div> 
+        </div> 
+        <div class="col-md">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Пароль</label>
+                <input type="password" class="form-control is-valid w-50" id="exampleFormControlInput6" placeholder="Введите пароль">
+                <div class="valid-feedback">
+                    goooood
+                </div>    
+            </div>       
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Повторите пароль</label>
+                <input type="password" class="form-control is-valid w-50" id="exampleFormControlInput3" placeholder="Введите пароль повторно">
+                <div class="valid-feedback">
+                    goooood
+                </div>    
+            </div>
+            
+        </div> 
+    </div>
+    <div class = "mb-3">
+
+        <label for="formFile" class="form-label">Выберите аватарку</label>
+        <input class="form-control w-75" type="file" id="formFile">              
+    </div>
+    <button type="button" class="btn btn-outline-primary btn-lg">Зарегестрироваться</button>
+    </form>
+</div>
+{% endblock %}

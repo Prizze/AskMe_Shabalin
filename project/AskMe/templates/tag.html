@@ -1,0 +1,22 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+
+
+{% block link_css %}
+ <link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class = "top-content">
+  <h3>Вопросы по тэгу: {{ tag.name }}</h3>
+</div>
+
+{% for question in questions %} 
+  {% include 'layouts/question.html' %}
+{% endfor %}
+
+{% include 'layouts/pagination.html' %}
+
+{% endblock %}
+

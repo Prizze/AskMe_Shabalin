@@ -1,0 +1,49 @@
+{% extends "layouts/base.html" %}
+
+
+{% load static %}
+{% block link_css %}
+ <link rel="stylesheet" href="{% static 'css/settings.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class = "settings">
+        <h3>
+            Settings: User
+        </h3>
+        <form action="#" class="form-floating needs-validation">
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">Логин</label>
+              <input type="email" class="form-control is-invalid w-25" id="exampleFormControlInput1" placeholder="Введите логин">
+              <div class="invalid-feedback">
+                Введите логин
+              </div>    
+            </div>   
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Email</label>
+                <input type="email" class="form-control is-invalid w-25" id="exampleFormControlInput3" placeholder="Введите почту">
+                <div class="invalid-feedback">
+                  Введите почту
+                </div>    
+              </div>       
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">Отображаемое имя</label>
+              <input type="email" class="form-control is-valid w-25" id="exampleFormControlInput2" placeholder="Введите имя">
+              <div class="valid-feedback">
+                goooood
+              </div> 
+            </div>
+            <div class = "mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Аватар</label>
+                <div class = "site-logo bg">
+                    <img src="{% static 'img/logo.png' %}" alt="Avatar">
+                </div>
+                <label for="formFile" class="form-label">Выберите файл</label>
+                <input class="form-control w-25" type="file" id="formFile">              
+            </div>
+    
+            <button type="button" class="btn btn-outline-primary btn-lg">Сохранить</button>
+    
+        </form>
+    </div>
+{% endblock %}

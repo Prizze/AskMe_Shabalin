@@ -1,0 +1,72 @@
+.card{
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    border: 0;
+}
+
+.card-view{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px;
+
+}
+
+.card-view .card-view-rating{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+    margin-top: 15px ;
+}
+
+
+.card-description{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 10px;
+}
+
+.card-description .card-text{
+    height: 100px;
+}
+
+.card-description .card-links{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+
+}
+
+.pagination{
+    margin-top: 50px;
+}
+
+.like{
+    color: #2ec27e;
+}
+
+.dislike{
+    color: #ed333b;
+}
+
+.top-content{
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+button{
+    all:unset
+}
+
+.btn:disabled{
+    color:black;
+    text-decoration: none;
+}

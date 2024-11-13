@@ -1,0 +1,12 @@
+.login-form{
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+}
+.btn-outline-primary{
+    margin-top: 20px;
+}
+.no-padding{
+    padding: 0;
+    margin-top: 20px;
+}

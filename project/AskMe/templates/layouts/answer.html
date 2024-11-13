@@ -1,0 +1,30 @@
+{% load static %}
+<div class = "card">
+    <div class = "card-view">
+        <div class = "site-logo">
+          <img src="{% static 'img/logo.png' %}" alt="Avatar">
+        </div>
+        <div class = "card-view-rating">
+          <button type="button" class="like" data-question-id="{{ ask.id }}" title="Like this question">
+            <i class="fa-regular fa-thumbs-up like"></i>
+          </button>
+          <label for="">{{ answer.rating }}</label>
+          <button type="button" class="dislike" data-question-id="{{ ask.id }}" title="Dislike this question">
+            <i class="fa-regular fa-thumbs-down fa-flip-horizontal dislike"></i>
+          </button> 
+        </div>
+    </div>
+
+    <div class = "card-description">
+      <div class = "card-text">
+          <p>{{ answer.body }}</p>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <label class="form-check-label" for="flexCheckDefault">
+          Верный ответ
+        </label>
+      </div>
+      
+    </div>
+</div>

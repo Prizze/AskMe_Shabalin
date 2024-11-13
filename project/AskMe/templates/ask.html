@@ -1,0 +1,33 @@
+{% extends "layouts/base.html" %}
+
+{% load static%}
+{% block link_css %}
+ <link rel="stylesheet" href="{% static 'css/ask.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class = "create-new-ask">
+    <h3>Новый вопрос</h3>
+    <form action="" class="form-floating needs-validation">
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Тема</label>
+          <input type="email" class="form-control is-invalid" id="exampleFormControlInput1" placeholder="Тема вопроса">
+          <div class="invalid-feedback">
+            Введите тему вопроса
+          </div>    
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlTextarea1" class="form-label">Вопрос</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>         
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Тэги</label>
+          <input type="email" class="form-control" id="exampleFormControlInput2" placeholder="Тэги вашего вопроса">
+        </div>
+
+        <button type="button" class="btn btn-outline-primary btn-lg">Спросить</button>
+
+    </form>
+
+</div>
+{% endblock %}

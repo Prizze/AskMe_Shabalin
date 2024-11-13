@@ -1,0 +1,18 @@
+.settings{
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    
+}
+.btn-outline-primary{
+    margin-top: 20px;
+}
+.bg{
+    width: 100px;
+    height: 100px;
+}
+.bg img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}

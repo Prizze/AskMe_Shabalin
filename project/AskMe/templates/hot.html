@@ -1,0 +1,25 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+
+
+{% block link_css %}
+ <link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class = "top-content">
+    <a href="{% url 'index' %}"><button type="button" class="btn btn-link btn-lg">Новые вопросы</button></a>
+    <button type="button" class="btn btn-link btn-lg" disabled>Популярные вопросы</button>
+</div>
+
+{% for question in questions %}
+  {% include 'layouts/question.html' %}
+{% endfor %}
+
+{% include 'layouts/pagination.html' %}
+
+<script src="https://kit.fontawesome.com/db91f6837d.js" crossorigin="anonymous"></script>
+
+{% endblock %}
+
