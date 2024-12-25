@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models import Count
+from django.urls import reverse
 
     
 class Profile(models.Model):
@@ -8,6 +9,7 @@ class Profile(models.Model):
     avatar = models.ImageField(upload_to='avatars/', blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     rating = models.IntegerField(default=0)
+    nickname = models.CharField(blank=True, null=True)
 
     def __str__(self):
         return self.user.username + " " + self.user.email 
@@ -19,19 +21,24 @@ class TagManager(models.Manager):
 class Tag(models.Model):
     name = models.CharField(max_length=100, unique=True)
 
+    objects = TagManager()
+
     def __str__(self):
         return self.name        
 
 class QuestionManager(models.Manager):
     def get_new(self):
         return self.order_by('-created_at')
+    
     def get_hot(self):
         return self.order_by('-rating')
+    
     def get_questions_by_tag(self, tag):
         return self.filter(tags=tag)
 
+
 class Question(models.Model):
-    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    profile = models.ForeignKey(Profile, null=True, on_delete=models.SET_NULL)
     title = models.CharField(max_length=100)
     body = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
@@ -44,14 +51,14 @@ class Question(models.Model):
 
     def __str__(self):
         return f'{self.title}. Reactions: {self.rating}'
-
+    
 
 class AnswerManager(models.Manager):
     def get_answers(self, question):
         return self.filter(question=question).order_by('-rating')
 
 class Answer(models.Model):
-    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    profile = models.ForeignKey(Profile, null=True, on_delete=models.SET_NULL)
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     body = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
@@ -75,10 +82,7 @@ class QuestionReaction(models.Model):
     ]
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    reaction = models.CharField(
-        max_length=10,
-        choices=REACTION_CHOICES,
-    )
+    reaction = models.CharField(max_length=10,choices=REACTION_CHOICES)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

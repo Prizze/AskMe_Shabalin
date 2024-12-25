@@ -162,3 +162,4 @@ class Command(BaseCommand):
                 self.stdout.write(f'saved{counter} profiles')
 
         self.stdout.write(self.style.SUCCESS(f'Created {ratio * 200} reactions.'))
+        

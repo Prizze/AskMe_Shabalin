@@ -1,34 +1,30 @@
 {% extends "layouts/base.html" %}
 
 {% load static %}
+{% load bootstrap5 %}
 
 {% block link_css %}
  <link rel="stylesheet" href="{% static 'css/login.css' %}">
 {% endblock %}
 
 {% block content %}
-<div class = "login-form">
-    <h3>
-        Вход в аккаунт
-    </h3>
-    <form action="#" class="form-floating needs-validation">
-        <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label">Логин</label>
-          <input type="email" class="form-control is-invalid w-25" id="exampleFormControlInput1" placeholder="Введите логин">
-          <div class="invalid-feedback">
-            Введите логин
-          </div>    
-        </div>   
-        <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Пароль</label>
-            <input type="password" class="form-control is-valid w-25" id="exampleFormControlInput3" placeholder="Введите пароль">
-            <div class="valid-feedback">
-                goooood
-              </div>    
-          </div>       
+<div class="login-form">
+  <h3>
+      Вход в аккаунт
+  </h3>
+  <form action="{% url 'login' %}" method="POST">
+     
+      {% csrf_token %}
+      {% bootstrap_form form %}
+      
+      <input type="hidden" name="continue" value="{{ continue }}">
+      
+      {% buttons %}
+        <button type="submit" class="btn btn-outline-primary btn-lg">Войти</button>
+      {% endbuttons %}
+  </form>
 
-        <button type="button" class="btn btn-outline-primary btn-lg">Войти</button>
-    </form>
-    <a href="{% url 'register' %}" class="btn btn-link no-padding">Зарегестрироваться</a>
+  <a href="{% url 'register' %}" class="btn btn-link no-padding">Зарегистрироваться</a>
+  
 </div>
 {% endblock %}

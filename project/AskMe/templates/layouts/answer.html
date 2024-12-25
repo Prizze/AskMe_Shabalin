@@ -1,14 +1,18 @@
 {% load static %}
-<div class = "card">
+<div class = "card" data-answer-id="{{ answer.id }}">
     <div class = "card-view">
         <div class = "site-logo">
-          <img src="{% static 'img/logo.png' %}" alt="Avatar">
+          {% if answer.question.profile.avatar %}
+              <img src="{{ answer.question.profile.avatar.url }}" alt="Avatar">
+            {% else %}
+              <img src="{% static 'img/logo.png' %}" alt="Default Avatar">
+            {% endif %}
         </div>
         <div class = "card-view-rating">
           <button type="button" class="like" data-question-id="{{ ask.id }}" title="Like this question">
             <i class="fa-regular fa-thumbs-up like"></i>
           </button>
-          <label for="">{{ answer.rating }}</label>
+          <label for=""><span class = "likes_counter">{{ answer.rating }}</span></label>
           <button type="button" class="dislike" data-question-id="{{ ask.id }}" title="Dislike this question">
             <i class="fa-regular fa-thumbs-down fa-flip-horizontal dislike"></i>
           </button> 
@@ -19,12 +23,13 @@
       <div class = "card-text">
           <p>{{ answer.body }}</p>
       </div>
+      {% if request.user == answer.question.profile.user %}
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <input class="form-check-input" data-answer-id="{{ answer.id }}" type="checkbox" value="" id="flexCheckDefault">
         <label class="form-check-label" for="flexCheckDefault">
           Верный ответ
         </label>
       </div>
-      
+      {% endif %}
     </div>
 </div>

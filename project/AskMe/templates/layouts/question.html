@@ -1,5 +1,5 @@
 {% load static %}
-<div class = "card">
+<div class = "card" data-question-id="{{ question.id }}">
     <div class = "card-view">
         <div class = "site-logo">
           {% if question.profile.avatar %}
@@ -9,11 +9,11 @@
           {% endif %}
         </div>
         <div class = "card-view-rating">
-          <button type="button" class="like" data-question-id="{{ question.id }}" title="Like this question">
+          <button type="button" class="like"  title="Like this question">
             <i class="fa-regular fa-thumbs-up like"></i>
           </button>
-          <label for="">{{ question.rating }}</label>
-          <button type="button" class="dislike" data-question-id="{{ question.id }}" title="Dislike this question">
+          <label for=""><span class = "likes_counter">{{ question.rating }}</span></label>
+          <button type="button" class="dislike" title="Dislike this question">
             <i class="fa-regular fa-thumbs-down fa-flip-horizontal dislike"></i>
           </button> 
         </div>
